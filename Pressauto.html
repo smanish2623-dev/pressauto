@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Auto Industries - Precision Sheet Metal Components</title>
+    <meta name="description" content="Press Auto Industries is a trusted manufacturer of sheet metal and press components for shock absorber assemblies in the automotive industry.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;700&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <style>
+        /* Reset & Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #0F172A;
+            --primary-foreground: #F8FAFC;
+            --secondary: #F1F5F9;
+            --accent: #F97316;
+            --accent-hover: #EA580C;
+            --background: #FFFFFF;
+            --foreground: #0F172A;
+            --muted: #64748B;
+            --border: #E2E8F0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Grid Pattern */
+        .grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(128, 128, 128, 0.07) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(128, 128, 128, 0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .logo-text {
+            color: white;
+        }
+
+        .navbar.scrolled .logo-text {
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.125rem;
+            letter-spacing: 0.05em;
+        }
+
+        .logo-text small {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            letter-spacing: 0.15em;
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: white;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .navbar.scrolled .nav-link {
+            color: var(--primary);
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar.scrolled .mobile-menu-btn {
+            color: var(--primary);
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            color: var(--primary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-image: url('https://images.unsplash.com/photo-1562003094-37c71004fa9b?crop=entropy&cs=srgb&fm=jpg&q=85');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.85) 100%);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(128, 128, 128, 0.07) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(128, 128, 128, 0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding-top: 80px;
+        }
+
+        .hero-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            font-size: 0.875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3.75rem;
+            }
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: #D1D5DB;
+            max-width: 640px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Section Styles */
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 8rem 0;
+            }
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            font-size: 0.875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Why Choose Us */
+        .why-section {
+            background-color: var(--secondary);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 640px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .card-icon i {
+            color: var(--accent);
+            width: 28px;
+            height: 28px;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--muted);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 64px;
+            background-color: var(--border);
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: -24px;
+            width: 128px;
+            height: 128px;
+            border: 2px solid var(--accent);
+        }
+
+        /* Products Section */
+        .products-section {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .products-section .section-title {
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            border-color: rgba(249, 115, 22, 0.5);
+        }
+
+        .product-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.5s ease;
+        }
+
+        .product-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .product-card-content {
+            padding: 1.5rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Facility Section */
+        .facility-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .facility-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .facility-image {
+            position: relative;
+            order: 2;
+        }
+
+        @media (min-width: 1024px) {
+            .facility-image {
+                order: 1;
+            }
+        }
+
+        .facility-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .facility-image::after {
+            content: '';
+            position: absolute;
+            top: -24px;
+            right: -24px;
+            width: 128px;
+            height: 128px;
+            border: 2px solid var(--primary);
+        }
+
+        .facility-content {
+            order: 1;
+        }
+
+        @media (min-width: 1024px) {
+            .facility-content {
+                order: 2;
+            }
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: var(--secondary);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon i {
+            color: var(--accent);
+            width: 20px;
+            height: 20px;
+        }
+
+        .feature-item span {
+            font-weight: 500;
+        }
+
+        /* Quality Section */
+        .quality-section {
+            background-color: var(--secondary);
+        }
+
+        .quality-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quality-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            border-top: 2px solid rgba(15, 23, 42, 0.2);
+            border-right: 2px solid rgba(15, 23, 42, 0.2);
+        }
+
+        .quality-card i {
+            color: var(--accent);
+            width: 32px;
+            height: 32px;
+            margin-bottom: 1rem;
+        }
+
+        .quality-card p {
+            font-weight: 500;
+        }
+
+        /* OEM Section */
+        .oem-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .oem-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .oem-text p {
+            color: var(--muted);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .partner-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background-color: var(--secondary);
+        }
+
+        .partner-item i {
+            color: var(--accent);
+            width: 20px;
+            height: 20px;
+        }
+
+        .partner-item span {
+            font-weight: 500;
+        }
+
+        .oem-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info p {
+            color: #9CA3AF;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            color: var(--accent);
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-item h3 {
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item p, .contact-item a {
+            color: #9CA3AF;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: white;
+            padding: 2rem;
+        }
+
+        .form-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+
+        .form-header p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-logo-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .footer-logo span {
+            color: #9CA3AF;
+            font-size: 0.875rem;
+        }
+
+        .footer-link {
+            color: #9CA3AF;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 56px;
+            height: 56px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <a href="#home" class="logo">
+                    <div class="logo-icon">PA</div>
+                    <div class="logo-text">
+                        <span>PRESS AUTO</span>
+                        <small>INDUSTRIES</small>
+                    </div>
+                </a>
+
+                <div class="nav-links">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#products" class="nav-link">Products</a>
+                    <a href="#facility" class="nav-link">Facility</a>
+                    <a href="#quality" class="nav-link">Quality</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
+            </div>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <a href="#home" onclick="closeMobileMenu()">Home</a>
+                <a href="#about" onclick="closeMobileMenu()">About</a>
+                <a href="#products" onclick="closeMobileMenu()">Products</a>
+                <a href="#facility" onclick="closeMobileMenu()">Facility</a>
+                <a href="#quality" onclick="closeMobileMenu()">Quality</a>
+                <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-label">Precision Manufacturing</p>
+                <h1 class="hero-title">
+                    Precision Sheet Metal Components for the <span>Shock Absorber Industry</span>
+                </h1>
+                <p class="hero-description">
+                    Press Auto Industries is a trusted manufacturer of sheet metal and press components used in shock absorber assemblies for the automotive industry. We focus on consistent quality, dimensional accuracy, and reliable supply to meet OEM requirements.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Quote</a>
+                    <a href="#products" class="btn btn-outline">Our Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-section section-padding grid-pattern">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-label">Our Strengths</p>
+                <h2 class="section-title">Why Press Auto Industries</h2>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i data-lucide="gauge"></i>
+                    </div>
+                    <h3 class="card-title">Power Press Capacity</h3>
+                    <p class="card-text">10 Ton to 150 Ton</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i data-lucide="target"></i>
+                    </div>
+                    <h3 class="card-title">Specialized Expertise</h3>
+                    <p class="card-text">Shock Absorber Sheet Metal Parts</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i data-lucide="wrench"></i>
+                    </div>
+                    <h3 class="card-title">OEM Manufacturing</h3>
+                    <p class="card-text">As per Drawings & Samples</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <h3 class="card-title">Delivery Commitment</h3>
+                    <p class="card-text">On-Time & Quality Assured</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="section-label">About Us</p>
+                    <h2 class="section-title">Building Trust Through Precision</h2>
+                    <p>
+                        Press Auto Industries is a Faridabad-based manufacturing unit engaged in the production of precision sheet metal and press components for shock absorber assemblies.
+                    </p>
+                    <p>
+                        With a strong focus on quality control and process discipline, we aim to become a reliable vendor for leading automotive OEMs and Tier-1 suppliers.
+                    </p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">150</div>
+                            <p class="stat-label">Ton Max Capacity</p>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <div class="stat-number">OEM</div>
+                            <p class="stat-label">Quality Standards</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1721745250213-c3e1a2f4eeeb?crop=entropy&cs=srgb&fm=jpg&q=85" alt="Manufacturing Facility">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section section-padding" id="products">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-label">Our Products</p>
+                <h2 class="section-title">Precision Components</h2>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1592867964826-ca850133fb74?crop=entropy&cs=srgb&fm=jpg&q=85&w=400" alt="Shock Absorber Cup Washers">
+                    <div class="product-card-content">
+                        <h3>Shock Absorber Cup Washers</h3>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1758873263428-f4b2edb45fe1?crop=entropy&cs=srgb&fm=jpg&q=85&w=400" alt="Sheet Metal Plates">
+                    <div class="product-card-content">
+                        <h3>Sheet Metal Plates</h3>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1644079446600-219068676743?crop=entropy&cs=srgb&fm=jpg&q=85&w=400" alt="Pressed Automotive Components">
+                    <div class="product-card-content">
+                        <h3>Pressed Automotive Components</h3>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1685038408124-e20ecac92293?crop=entropy&cs=srgb&fm=jpg&q=85&w=400" alt="Custom OEM Parts">
+                    <div class="product-card-content">
+                        <h3>Custom OEM Parts</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Facility Section -->
+    <section class="section-padding" id="facility">
+        <div class="container">
+            <div class="facility-grid">
+                <div class="facility-image">
+                    <img src="https://images.unsplash.com/photo-1644079446600-219068676743?crop=entropy&cs=srgb&fm=jpg&q=85" alt="Manufacturing Facility">
+                </div>
+
+                <div class="facility-content">
+                    <p class="section-label">Manufacturing Facility</p>
+                    <h2 class="section-title">State-of-the-Art Equipment</h2>
+
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i data-lucide="factory"></i>
+                            </div>
+                            <span>Power Press Machines: 10 Ton to 150 Ton</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i data-lucide="factory"></i>
+                            </div>
+                            <span>Single Shift Operation (Scalable as per demand)</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i data-lucide="factory"></i>
+                            </div>
+                            <span>In-house Tool Maintenance</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i data-lucide="factory"></i>
+                            </div>
+                            <span>Skilled Power Press Operators</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality & Inspection Section -->
+    <section class="quality-section section-padding grid-pattern" id="quality">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-label">Quality Assurance</p>
+                <h2 class="section-title">Quality & Inspection</h2>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card quality-card">
+                    <i data-lucide="check-circle"></i>
+                    <p>Incoming Raw Material Inspection</p>
+                </div>
+
+                <div class="card quality-card">
+                    <i data-lucide="shield"></i>
+                    <p>In-Process Quality Monitoring</p>
+                </div>
+
+                <div class="card quality-card">
+                    <i data-lucide="award"></i>
+                    <p>Final Inspection Before Dispatch</p>
+                </div>
+
+                <div class="card quality-card">
+                    <i data-lucide="target"></i>
+                    <p>OEM-Oriented Quality Systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OEM Focus Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="oem-grid">
+                <div class="oem-text">
+                    <p class="section-label">OEM Focus</p>
+                    <h2 class="section-title">Partnering with Industry Leaders</h2>
+                    <p>
+                        Press Auto Industries aims to work as an approved vendor for major shock absorber manufacturers and automotive suppliers, including:
+                    </p>
+
+                    <div class="partners-grid">
+                        <div class="partner-item">
+                            <i data-lucide="users"></i>
+                            <span>Endurance Technologies</span>
+                        </div>
+
+                        <div class="partner-item">
+                            <i data-lucide="users"></i>
+                            <span>Gabriel India</span>
+                        </div>
+
+                        <div class="partner-item">
+                            <i data-lucide="users"></i>
+                            <span>Tenneco</span>
+                        </div>
+
+                        <div class="partner-item">
+                            <i data-lucide="users"></i>
+                            <span>Munjal Showa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="oem-image">
+                    <img src="https://images.unsplash.com/photo-1685038408124-e20ecac92293?crop=entropy&cs=srgb&fm=jpg&q=85" alt="Quality Inspection">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section section-padding grid-pattern" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <p class="section-label">Get In Touch</p>
+                    <h2 class="section-title" style="color: white;">Contact Us</h2>
+                    <p>
+                        Ready to discuss your requirements? Reach out to us for quotes, inquiries, or any questions about our manufacturing capabilities.
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div>
+                                <h3>Address</h3>
+                                <p>
+                                    B-70 & 73, Kapra Colony,<br>
+                                    Near Airforce Station,<br>
+                                    NIT Faridabad, Haryana, India
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i data-lucide="phone"></i>
+                            </div>
+                            <div>
+                                <h3>Phone</h3>
+                                <a href="tel:+919811672780">+91 9811672780</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i data-lucide="globe"></i>
+                            </div>
+                            <div>
+                                <h3>Website</h3>
+                                <a href="https://www.pressauto.in" target="_blank">www.pressauto.in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h3>Request a Quote</h3>
+                        <p>Work Order Form</p>
+                    </div>
+
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" name="company" placeholder="Company name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Message *</label>
+                            <textarea name="message" placeholder="Describe your requirements..." rows="4" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-submit">
+                            Submit Inquiry
+                            <i data-lucide="arrow-right" style="width: 18px; height: 18px; margin-left: 8px;"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">PA</div>
+                    <span>© 2024 Press Auto Industries. All rights reserved.</span>
+                </div>
+                <a href="https://www.pressauto.in" target="_blank" class="footer-link">www.pressauto.in</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top" onclick="scrollToTop()">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919811672780?text=Hello%20Press%20Auto%20Industries%2C%20I%20would%20like%20to%20inquire%20about%20your%20products." target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+    </a>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.remove('active');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = document.getElementById('scroll-top');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // You can add actual form submission logic here
+            alert('Thank you for your inquiry! We will contact you soon.');
+            form.reset();
+        }
+    </script>
+</body>
+</html>
